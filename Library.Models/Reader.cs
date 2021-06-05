@@ -5,6 +5,7 @@
 namespace Library.Models
 {
     using System;
+    using System.Collections.Generic;
 
     /// <summary>
     /// This Model class is used to declare the properties for reader.
@@ -28,5 +29,11 @@ namespace Library.Models
         /// </summary>
         /// <type>DateTime.</type>
         public DateTime DOB { get; set; }
+
+        /// <summary>
+        /// Gets or sets List of book.
+        /// </summary>
+        /// <type>Book.</type>
+        public IList<Book> Books { get; set; } = new List<Book>();
     }
 }
