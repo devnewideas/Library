@@ -4,8 +4,11 @@
 
 namespace Library.RestApi
 {
+    using Library.Repositories;
+    using Library.ServiceProcess;
     using Microsoft.AspNetCore.Builder;
     using Microsoft.AspNetCore.Hosting;
+    using Microsoft.EntityFrameworkCore;
     using Microsoft.Extensions.Configuration;
     using Microsoft.Extensions.DependencyInjection;
     using Microsoft.Extensions.Hosting;
@@ -21,7 +24,7 @@ namespace Library.RestApi
         /// <param name="configuration">Configuration object.</param>
         public Startup(IConfiguration configuration)
         {
-            this.Configuration = configuration;
+            Configuration = configuration;
         }
 
         /// <summary>
@@ -33,9 +36,21 @@ namespace Library.RestApi
         /// This method gets called by the runtime. Use this method to add services to the container.
         /// </summary>
         /// <param name="services">IServiceCollection interface.</param>
-        public static void ConfigureServices(IServiceCollection services)
+        public void ConfigureServices(IServiceCollection services)
         {
             services.AddControllers();
+
+            services.AddDbContext<AppDbContext>(options =>
+            {
+                // Usually, the in-memory provider is used when we write integration tests
+                // but I’m using it here for simplicity. This way we don’t need to connect
+                // to a real database to test the application.
+                options.UseInMemoryDatabase(Configuration.GetConnectionString("memory"));
+            });
+
+            services.AddScoped<IReaderRepository, ReaderRepository>();
+
+            services.AddScoped<IReaderService, ReaderService>();
         }
 
         /// <summary>
@@ -43,7 +58,7 @@ namespace Library.RestApi
         /// </summary>
         /// <param name="app">IApplicationBuilder interface.</param>
         /// <param name="env">IWebHostEnvironment interface.</param>
-        public static void Configure(IApplicationBuilder app, IWebHostEnvironment env)
+        public void Configure(IApplicationBuilder app, IWebHostEnvironment env)
         {
             if (env.IsDevelopment())
             {

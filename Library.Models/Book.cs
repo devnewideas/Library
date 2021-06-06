@@ -36,6 +36,12 @@ namespace Library.Models
         public DateTime? CheckOutDate { get; set; }
 
         /// <summary>
+        /// Gets or sets the Reader Id.
+        /// </summary>
+        /// <type>int.</type>
+        public int ReaderId { get; set; }
+
+        /// <summary>
         /// Gets or sets the Reader Object.
         /// </summary>
         /// <type>Reader.</type>
