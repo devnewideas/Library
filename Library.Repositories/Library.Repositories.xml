@@ -81,6 +81,12 @@
             </summary>
             <param name="reader"></param>
         </member>
+        <member name="M:Library.Repositories.IReaderRepository.Remove(Library.Models.Reader)">
+            <summary>
+            Delete the record.
+            </summary>
+            <param name="reader"></param>
+        </member>
         <member name="T:Library.Repositories.IUnitOfWork">
             <summary>
             
@@ -129,6 +135,12 @@
         <member name="M:Library.Repositories.ReaderRepository.Update(Library.Models.Reader)">
             <summary>
             This will be used to update the reader into the database.
+            </summary>
+            <param name="reader"></param>
+        </member>
+        <member name="M:Library.Repositories.ReaderRepository.Remove(Library.Models.Reader)">
+            <summary>
+            This will be used to delete the reader details from database.
             </summary>
             <param name="reader"></param>
         </member>

@@ -29,6 +29,13 @@
             <param name="reader"></param>
             <returns></returns>
         </member>
+        <member name="M:Library.ServiceProcess.IReaderService.DeleteAsync(System.Int32)">
+            <summary>
+            Delete the reader details.
+            </summary>
+            <param name="id"></param>
+            <returns></returns>
+        </member>
         <member name="T:Library.ServiceProcess.ReaderService">
             <summary>
             This class is used to act as a middlelayer between api and dataaccess.
@@ -70,6 +77,13 @@
             </summary>
             <param name="id"></param>
             <param name="reader"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Library.ServiceProcess.ReaderService.DeleteAsync(System.Int32)">
+            <summary>
+            Delete a record.
+            </summary>
+            <param name="id"></param>
             <returns></returns>
         </member>
     </members>

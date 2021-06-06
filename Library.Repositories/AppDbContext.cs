@@ -50,8 +50,8 @@ namespace Library.Repositories
             // Seeding the data.
             builder.Entity<Reader>().HasData
             (
-                new Reader { Id = 100, Name = "John", DOB = new System.DateTime(1985, 12 ,24, 05, 30, 12) }, // Id set manually due to in-memory provider
-                new Reader { Id = 101, Name = "Christopher", DOB = new System.DateTime(1981, 01, 21, 12, 02, 00) }
+                new Reader { Id = 10, Name = "John", DOB = new System.DateTime(1985, 12 ,24, 05, 30, 12) }, // Id set manually due to in-memory provider
+                new Reader { Id = 11, Name = "Christopher", DOB = new System.DateTime(1981, 01, 21, 12, 02, 00) }
             );
 
             builder.Entity<Book>().ToTable("Books");

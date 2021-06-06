@@ -64,5 +64,14 @@ namespace Library.Repositories
         {
             _context.Readers.Update(reader);
         }
+
+        /// <summary>
+        /// This will be used to delete the reader details from database.
+        /// </summary>
+        /// <param name="reader"></param>
+        public void Remove(Reader reader)
+        {
+            _context.Readers.Remove(reader);
+        }
     }
 }

@@ -52,18 +52,18 @@ namespace Library.ServiceProcess
         /// </summary>
         /// <param name="reader"></param>
         /// <returns></returns>
-        public async Task<SaveReaderResponse> SaveAsync(Reader reader)
+        public async Task<ReaderResponse> SaveAsync(Reader reader)
         {
             try
             {
                 await _readerRepository.AddAsync(reader);
                 await _unitOfWork.CompleteAsync();
 
-                return new SaveReaderResponse(reader);
+                return new ReaderResponse(reader);
             }
             catch (Exception ex)
             {
-                return new SaveReaderResponse($"An error occurred when saving the reader: {ex.Message}");
+                return new ReaderResponse($"An error occurred when saving the reader: {ex.Message}");
             }
         }
 
@@ -73,12 +73,12 @@ namespace Library.ServiceProcess
         /// <param name="id"></param>
         /// <param name="reader"></param>
         /// <returns></returns>
-        public async Task<SaveReaderResponse> UpdateAsync(int id, Reader reader)
+        public async Task<ReaderResponse> UpdateAsync(int id, Reader reader)
         {
             var existingReader = await _readerRepository.FindByIdAsync(id);
 
             if (existingReader == null)
-                return new SaveReaderResponse("Reader not found.");
+                return new ReaderResponse("Reader not found.");
 
             existingReader.Name = reader.Name;
             existingReader.DOB = reader.DOB;
@@ -88,11 +88,36 @@ namespace Library.ServiceProcess
                 _readerRepository.Update(existingReader);
                 await _unitOfWork.CompleteAsync();
 
-                return new SaveReaderResponse(existingReader);
+                return new ReaderResponse(existingReader);
             }
             catch (Exception ex)
             {
-                return new SaveReaderResponse($"An error occurred when updating the reader: {ex.Message}");
+                return new ReaderResponse($"An error occurred when updating the reader: {ex.Message}");
+            }
+        }
+
+        /// <summary>
+        /// Delete a record.
+        /// </summary>
+        /// <param name="id"></param>
+        /// <returns></returns>
+        public async Task<ReaderResponse> DeleteAsync(int id)
+        {
+            var existingReader = await _readerRepository.FindByIdAsync(id);
+
+            if (existingReader == null)
+                return new ReaderResponse("Reader not found.");
+
+            try
+            {
+                _readerRepository.Remove(existingReader);
+                await _unitOfWork.CompleteAsync();
+
+                return new ReaderResponse(existingReader);
+            }
+            catch (Exception ex)
+            {
+                return new ReaderResponse($"An error occurred when deleting the reader: {ex.Message}");
             }
         }
     }

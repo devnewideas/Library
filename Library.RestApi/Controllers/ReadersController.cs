@@ -46,6 +46,7 @@ namespace Library.RestApi.Controllers
         /// </summary>
         /// <returns>Returns list of readers.</returns>
         [HttpGet]
+        [ProducesResponseType(typeof(IEnumerable<ReaderResource>), 200)]
         public async Task<IEnumerable<ReaderResource>> GetAllAsync()
         {
             var readers = await _readerService.ListAsync();
@@ -61,19 +62,21 @@ namespace Library.RestApi.Controllers
         /// <param name="resource"></param>
         /// <returns></returns>
         [HttpPost]
+        [ProducesResponseType(typeof(ReaderResource), 201)]
+        [ProducesResponseType(typeof(ErrorResource), 400)]
         public async Task<IActionResult> PostAsync([FromBody] SaveReaderResource resource)
         {
-            if (!ModelState.IsValid)
-                return BadRequest(ModelState.GetErrorMessages());
+            //if (!ModelState.IsValid)
+            //    return BadRequest(ModelState.GetErrorMessages());
 
             var reader = _mapper.Map<SaveReaderResource, Reader>(resource);
 
             var result = await _readerService.SaveAsync(reader);
 
             if (!result.Success)
-                return BadRequest(result.Message);
+                return BadRequest(new ErrorResource(result.Message));
 
-            var readerResource = _mapper.Map<Reader, ReaderResource>(result.Reader);
+            var readerResource = _mapper.Map<Reader, ReaderResource>(result.Resource);
 
             return Ok(readerResource);
         }
@@ -85,18 +88,39 @@ namespace Library.RestApi.Controllers
         /// <param name="resource"></param>
         /// <returns></returns>
         [HttpPut("{id}")]
+        [ProducesResponseType(typeof(ReaderResource), 200)]
+        [ProducesResponseType(typeof(ErrorResource), 400)]
         public async Task<IActionResult> PutAsync(int id, [FromBody] SaveReaderResource resource)
         {
-            if (!ModelState.IsValid)
-                return BadRequest(ModelState.GetErrorMessages());
+            //if (!ModelState.IsValid)
+            //    return BadRequest(ModelState.GetErrorMessages());
 
             var reader = _mapper.Map<SaveReaderResource, Reader>(resource);
             var result = await _readerService.UpdateAsync(id, reader);
 
             if (!result.Success)
-                return BadRequest(result.Message);
+                return BadRequest(new ErrorResource(result.Message));
 
-            var readerResource = _mapper.Map<Reader, ReaderResource>(result.Reader);
+            var readerResource = _mapper.Map<Reader, ReaderResource>(result.Resource);
+            return Ok(readerResource);
+        }
+
+        /// <summary>
+        /// Delete the reader details.
+        /// </summary>
+        /// <param name="id"></param>
+        /// <returns></returns>
+        [HttpDelete("{id}")]
+        [ProducesResponseType(typeof(ReaderResource), 200)]
+        [ProducesResponseType(typeof(ErrorResource), 400)]
+        public async Task<IActionResult> DeleteAsync(int id)
+        {
+            var result = await _readerService.DeleteAsync(id);
+
+            if (!result.Success)
+                return BadRequest(new ErrorResource(result.Message));
+
+            var readerResource = _mapper.Map<Reader, ReaderResource>(result.Resource);
             return Ok(readerResource);
         }
 

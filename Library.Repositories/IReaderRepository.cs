@@ -40,5 +40,11 @@ namespace Library.Repositories
         /// </summary>
         /// <param name="reader"></param>
         void Update(Reader reader);
+
+        /// <summary>
+        /// Delete the record.
+        /// </summary>
+        /// <param name="reader"></param>
+        void Remove(Reader reader);
     }
 }

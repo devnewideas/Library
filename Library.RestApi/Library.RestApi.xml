@@ -52,6 +52,25 @@
             <param name="resource"></param>
             <returns></returns>
         </member>
+        <member name="M:Library.RestApi.Controllers.ReadersController.DeleteAsync(System.Int32)">
+            <summary>
+            Delete the reader details.
+            </summary>
+            <param name="id"></param>
+            <returns></returns>
+        </member>
+        <member name="T:Library.RestApi.Extensions.InvalidModelResponseFactory">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="M:Library.RestApi.Extensions.InvalidModelResponseFactory.ProduceErrorResponse(Microsoft.AspNetCore.Mvc.ActionContext)">
+            <summary>
+            
+            </summary>
+            <param name="context"></param>
+            <returns></returns>
+        </member>
         <member name="T:Library.RestApi.Extensions.ModelStateExtensions">
             <summary>
             This class is act as an extension class.
