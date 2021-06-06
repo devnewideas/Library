@@ -9,6 +9,41 @@
             This controller is used to trigger the CRUD operations.
             </summary>
         </member>
+        <member name="M:Library.RestApi.Controllers.BooksController.#ctor(Library.ServiceProcess.IBookService,AutoMapper.IMapper)">
+            <summary>
+            
+            </summary>
+            <param name="bookService"></param>
+            <param name="mapper"></param>
+        </member>
+        <member name="M:Library.RestApi.Controllers.BooksController.ListAsync(Library.Models.BooksQueryResource)">
+            <summary>
+            Lists all existing books.
+            </summary>
+            <returns>List of books.</returns>
+        </member>
+        <member name="M:Library.RestApi.Controllers.BooksController.PostAsync(Library.Models.SaveBookResource)">
+            <summary>
+            Saves a new book.
+            </summary>
+            <param name="resource">book data.</param>
+            <returns>Response for the request.</returns>
+        </member>
+        <member name="M:Library.RestApi.Controllers.BooksController.PutAsync(System.Int32,Library.Models.SaveBookResource)">
+            <summary>
+            Updates an existing book according to an identifier.
+            </summary>
+            <param name="id">Book identifier.</param>
+            <param name="resource">Book data.</param>
+            <returns>Response for the request.</returns>
+        </member>
+        <member name="M:Library.RestApi.Controllers.BooksController.DeleteAsync(System.Int32)">
+            <summary>
+            Deletes a given book according to an identifier.
+            </summary>
+            <param name="id">Book identifier.</param>
+            <returns>Response for the request.</returns>
+        </member>
         <member name="T:Library.RestApi.Controllers.ReadersController">
             <summary>
             This controller is used to trigger the CRUD operations.

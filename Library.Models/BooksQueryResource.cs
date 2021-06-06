@@ -7,7 +7,7 @@ namespace Library.Models
     /// <summary>
     /// 
     /// </summary>
-    public class BooksQueryResource
+    public class BooksQueryResource : QueryResource
     {
         /// <summary>
         /// 
