@@ -4,6 +4,7 @@
 
 namespace Library.RestApi.Controllers
 {
+    using AutoMapper;
     using Library.Models;
     using Library.ServiceProcess;
     using Microsoft.AspNetCore.Mvc;
@@ -19,17 +20,24 @@ namespace Library.RestApi.Controllers
     public class ReadersController : ControllerBase
     {
         /// <summary>
-        /// Declare private variable.
+        /// Declare private variable for reader interface.
         /// </summary>
         private readonly IReaderService _readerService;
+
+        /// <summary>
+        /// Declare private variable for mapper interface.
+        /// </summary>
+        private readonly IMapper _mapper;
 
         /// <summary>
         /// Parameterized Constructor
         /// </summary>
         /// <param name="readerService">IReaderService interface</param>
-        public ReadersController(IReaderService readerService)
+        /// <param name="mapper">IMapper interface</param>
+        public ReadersController(IReaderService readerService, IMapper mapper)
         {
             _readerService = readerService;
+            _mapper = mapper;
         }
 
         /// <summary>
@@ -37,10 +45,13 @@ namespace Library.RestApi.Controllers
         /// </summary>
         /// <returns>Returns list of readers.</returns>
         [HttpGet]
-        public async Task<IEnumerable<Reader>> GetAllAsync()
+        public async Task<IEnumerable<ReaderResource>> GetAllAsync()
         {
             var readers = await _readerService.ListAsync();
-            return readers;
+            
+            var resources = _mapper.Map<IEnumerable<Library.Models.Reader>, IEnumerable<Library.Models.ReaderResource>>(readers);
+            
+            return resources;
         }
 
     }

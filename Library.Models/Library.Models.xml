@@ -80,5 +80,28 @@
             </summary>
             <type>Book.</type>
         </member>
+        <member name="T:Library.Models.ReaderResource">
+            <summary>
+            This class that contains only basic information that will be exchanged between client applications and API endpoints.
+            </summary>
+        </member>
+        <member name="P:Library.Models.ReaderResource.Id">
+            <summary>
+            Gets or sets identity Value.
+            </summary>
+            <type>int.</type>
+        </member>
+        <member name="P:Library.Models.ReaderResource.Name">
+            <summary>
+            Gets or sets name of the reader.
+            </summary>
+            <type>string.</type>
+        </member>
+        <member name="P:Library.Models.ReaderResource.DOB">
+            <summary>
+            Gets or sets date of birth.
+            </summary>
+            <type>DateTime.</type>
+        </member>
     </members>
 </doc>

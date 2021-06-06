@@ -15,6 +15,7 @@
   </ItemGroup>
 
   <ItemGroup>
+    <ProjectReference Include="..\Library.Mapper\Library.Mapper.csproj" />
     <ProjectReference Include="..\Library.Models\Library.Models.csproj" />
     <ProjectReference Include="..\Library.ServiceProcess\Library.ServiceProcess.csproj" />
   </ItemGroup>

@@ -4,6 +4,7 @@
 
 namespace Library.RestApi
 {
+    using Library.Mapper;
     using Library.Repositories;
     using Library.RestApi.Extensions;
     using Library.ServiceProcess;
@@ -54,6 +55,8 @@ namespace Library.RestApi
             services.AddScoped<IReaderRepository, ReaderRepository>();
 
             services.AddScoped<IReaderService, ReaderService>();
+
+            services.AddAutoMapper(typeof(RequestMapperProfile));
         }
 
         /// <summary>
