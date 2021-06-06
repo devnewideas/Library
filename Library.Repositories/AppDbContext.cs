@@ -61,6 +61,47 @@ namespace Library.Repositories
             builder.Entity<Book>().Property(p => p.ISBN).IsRequired();
             builder.Entity<Book>().Property(p => p.CheckOutDate);
             builder.Entity<Book>().Property(p => p.Lost);
+
+            // Seeding the data.
+            builder.Entity<Book>().HasData
+            (
+                new Book
+                {
+                    Id = 10,
+                    Title = "Computer Science Using Python",
+                    ISBN = "1001",
+                    CheckOutDate = new System.DateTime(2021,02,15,08,30,10),
+                    ReaderId = 10,
+                    Lost = false
+                },
+                new Book
+                {
+                    Id = 11,
+                    Title = "The Pragmatic Programmer",
+                    ISBN = "1002",
+                    CheckOutDate = new System.DateTime(2021, 03, 09, 08, 30, 10),
+                    ReaderId = 10,
+                    Lost = false
+                },
+                new Book
+                {
+                    Id = 12,
+                    Title = "Modern Operating Systems",
+                    ISBN = "1003",
+                    CheckOutDate = new System.DateTime(2021, 03, 09, 08, 30, 10),
+                    ReaderId = 11,
+                    Lost = false
+                },
+                new Book
+                {
+                    Id = 13,
+                    Title = "C# Programming",
+                    ISBN = "1004",
+                    CheckOutDate = new System.DateTime(2021, 04, 21, 08, 30, 10),
+                    ReaderId = 11,
+                    Lost = false
+                }
+            );
         }
     }
 }

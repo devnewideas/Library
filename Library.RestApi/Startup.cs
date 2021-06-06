@@ -40,7 +40,11 @@ namespace Library.RestApi
         /// <param name="services">IServiceCollection interface.</param>
         public void ConfigureServices(IServiceCollection services)
         {
-            services.AddControllers();
+            services.AddControllers().ConfigureApiBehaviorOptions(options =>
+            {
+                // Adds a custom error response factory when ModelState is invalid
+                options.InvalidModelStateResponseFactory = InvalidModelResponseFactory.ProduceErrorResponse;
+            });
 
             services.AddCustomSwagger();
 
@@ -53,10 +57,12 @@ namespace Library.RestApi
             });
 
             services.AddScoped<IReaderRepository, ReaderRepository>();
-            
+            services.AddScoped<IBookRepository, BookRepository>();
+
             services.AddScoped<IUnitOfWork, UnitOfWork>();
 
             services.AddScoped<IReaderService, ReaderService>();
+            services.AddScoped<IBookService, BookService>();
 
             services.AddAutoMapper(typeof(RequestMapperProfile),
                 typeof(ResponseMapperProfile));

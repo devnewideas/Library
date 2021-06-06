@@ -50,6 +50,89 @@
             </summary>
             <param name="context"></param>
         </member>
+        <member name="T:Library.Repositories.BookRepository">
+            <summary>
+            This class repository inherits the BaseRepository
+            and implements IBookRepository.
+            </summary>
+        </member>
+        <member name="M:Library.Repositories.BookRepository.#ctor(Library.Repositories.AppDbContext)">
+            <summary>
+            
+            </summary>
+            <param name="context"></param>
+        </member>
+        <member name="M:Library.Repositories.BookRepository.ListAsync(Library.Models.BooksQuery)">
+            <summary>
+            This method is use the books database set to access the books table 
+            and then call the extension method ToListAsync which is responsible for transforming
+            the result of a query into a collection of books.
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:Library.Repositories.BookRepository.AddAsync(Library.Models.Book)">
+            <summary>
+            This method is used to create a new record into books database.
+            </summary>
+            <param name="book"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Library.Repositories.BookRepository.FindByIdAsync(System.Int32)">
+            <summary>
+            This will asynchronously return a book from the database.
+            </summary>
+            <param name="id"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Library.Repositories.BookRepository.Update(Library.Models.Book)">
+            <summary>
+            This will be used to update the book into the database.
+            </summary>
+            <param name="book"></param>
+        </member>
+        <member name="M:Library.Repositories.BookRepository.Remove(Library.Models.Book)">
+            <summary>
+            This will be used to delete the book details from database.
+            </summary>
+            <param name="book"></param>
+        </member>
+        <member name="T:Library.Repositories.IBookRepository">
+            <summary>
+            This interface is used to manage data from databases.
+            </summary>
+        </member>
+        <member name="M:Library.Repositories.IBookRepository.ListAsync(Library.Models.BooksQuery)">
+            <summary>
+            Gets list of books.
+            </summary>
+            <returns>Returns list of readers.</returns>
+        </member>
+        <member name="M:Library.Repositories.IBookRepository.AddAsync(Library.Models.Book)">
+            <summary>
+            create a new record into database.
+            </summary>
+            <param name="book"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Library.Repositories.IBookRepository.FindByIdAsync(System.Int32)">
+            <summary>
+            Get the data based on id.
+            </summary>
+            <param name="id"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Library.Repositories.IBookRepository.Update(Library.Models.Book)">
+            <summary>
+            Update the record.
+            </summary>
+            <param name="book"></param>
+        </member>
+        <member name="M:Library.Repositories.IBookRepository.Remove(Library.Models.Book)">
+            <summary>
+            Delete the record.
+            </summary>
+            <param name="book"></param>
+        </member>
         <member name="T:Library.Repositories.IReaderRepository">
             <summary>
             This interface is used to manage data from databases.

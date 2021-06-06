@@ -4,6 +4,94 @@
         <name>Library.ServiceProcess</name>
     </assembly>
     <members>
+        <member name="T:Library.ServiceProcess.BookService">
+            <summary>
+            This class is used to act as a middlelayer between api and dataaccess.
+            </summary>
+        </member>
+        <member name="F:Library.ServiceProcess.BookService._bookRepository">
+            <summary>
+            Private variable for IBookRepository.
+            </summary>
+        </member>
+        <member name="F:Library.ServiceProcess.BookService._readerRepository">
+            <summary>
+            Private variable for IReaderRepository.
+            </summary>
+        </member>
+        <member name="F:Library.ServiceProcess.BookService._unitOfWork">
+            <summary>
+            Private variable for IUnitOfWork.
+            </summary>
+        </member>
+        <member name="M:Library.ServiceProcess.BookService.#ctor(Library.Repositories.IBookRepository,Library.Repositories.IReaderRepository,Library.Repositories.IUnitOfWork)">
+            <summary>
+            Parameterized constructor
+            </summary>
+            <param name="bookRepository">IBookRepository interface.</param>
+            <param name="readerRepository">IReaderRepository interface.</param>
+            <param name="unitOfWork">IUnitOfWork interface.</param>
+        </member>
+        <member name="M:Library.ServiceProcess.BookService.ListAsync(Library.Models.BooksQuery)">
+            <summary>
+            Get the list of books.
+            </summary>
+            <returns>Returns list of books.</returns>
+        </member>
+        <member name="M:Library.ServiceProcess.BookService.SaveAsync(Library.Models.Book)">
+            <summary>
+            Create a new item in book table.
+            </summary>
+            <param name="book"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Library.ServiceProcess.BookService.UpdateAsync(System.Int32,Library.Models.Book)">
+            <summary>
+            Update a reader record.
+            </summary>
+            <param name="id"></param>
+            <param name="book"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Library.ServiceProcess.BookService.DeleteAsync(System.Int32)">
+            <summary>
+            Delete a record.
+            </summary>
+            <param name="id"></param>
+            <returns></returns>
+        </member>
+        <member name="T:Library.ServiceProcess.IBookService">
+            <summary>
+            This interface will be the middlelayer between service and dataaccess.
+            </summary>
+        </member>
+        <member name="M:Library.ServiceProcess.IBookService.ListAsync(Library.Models.BooksQuery)">
+            <summary>
+            List of readers.
+            </summary>
+        </member>
+        <member name="M:Library.ServiceProcess.IBookService.SaveAsync(Library.Models.Book)">
+            <summary>
+            This will be used to create the reader details.
+            </summary>
+            <param name="book"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Library.ServiceProcess.IBookService.UpdateAsync(System.Int32,Library.Models.Book)">
+            <summary>
+            Update the reader details.
+            </summary>
+            <param name="id"></param>
+            <param name="book"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Library.ServiceProcess.IBookService.DeleteAsync(System.Int32)">
+            <summary>
+            Delete the reader details.
+            </summary>
+            <param name="id"></param>
+            <returns></returns>
+        </member>
         <member name="T:Library.ServiceProcess.IReaderService">
             <summary>
             This interface will be the middlelayer between service and dataaccess.
