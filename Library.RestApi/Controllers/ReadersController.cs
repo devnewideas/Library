@@ -57,6 +57,25 @@ namespace Library.RestApi.Controllers
         }
 
         /// <summary>
+        /// Get the reader based on name.
+        /// </summary>
+        /// <returns>Returns reader details.</returns>
+        [HttpGet("{name}")]
+        [ProducesResponseType(typeof(ReaderResource), 200)]
+        [ProducesResponseType(typeof(ErrorResource), 404)]
+        public async Task<IActionResult> GetAsync(string name)
+        {
+            var result = await _readerService.SingleAsync(name);
+
+            if (!result.Success)
+                return BadRequest(new ErrorResource(result.Message));
+
+            var reader = _mapper.Map<Library.Models.Reader, Library.Models.ReaderResource>(result.Resource);
+
+            return Ok(reader);
+        }
+
+        /// <summary>
         /// Create a new reader details.
         /// </summary>
         /// <param name="resource"></param>

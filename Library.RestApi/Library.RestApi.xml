@@ -37,6 +37,12 @@
             </summary>
             <returns>Returns list of readers.</returns>
         </member>
+        <member name="M:Library.RestApi.Controllers.ReadersController.GetAsync(System.String)">
+            <summary>
+            Get the reader based on name.
+            </summary>
+            <returns>Returns reader details.</returns>
+        </member>
         <member name="M:Library.RestApi.Controllers.ReadersController.PostAsync(Library.Models.SaveReaderResource)">
             <summary>
             Create a new reader details.

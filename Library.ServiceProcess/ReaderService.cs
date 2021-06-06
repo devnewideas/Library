@@ -8,6 +8,7 @@ namespace Library.ServiceProcess
     using Library.Repositories;
     using System;
     using System.Collections.Generic;
+    using System.Linq;
     using System.Text;
     using System.Threading.Tasks;
 
@@ -45,6 +46,22 @@ namespace Library.ServiceProcess
         public async Task<IEnumerable<Reader>> ListAsync()
         {
             return await _readerRepository.ListAsync();
+        }
+
+        /// <summary>
+        /// Get the reader details.
+        /// </summary>
+        /// <returns>Returns reader details.</returns>
+        public async Task<ReaderResponse> SingleAsync(string name)
+        {
+            var listOfReaders = await _readerRepository.ListAsync();
+
+            var reader = listOfReaders.Where(x => x.Name == name).Select(p => p).FirstOrDefault();
+
+            if (reader == null)
+                return new ReaderResponse("Reader not found.");
+
+            return new ReaderResponse(reader);
         }
 
         /// <summary>
