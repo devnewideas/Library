@@ -18,6 +18,10 @@ namespace Library.Mapper
         public ResponseMapperProfile()
         {
             CreateMap<SaveReaderResource, Reader>();
+
+            CreateMap<SaveBookResource, Book>();
+
+            CreateMap<BooksQueryResource, BooksQuery>();
         }
     }
 }
