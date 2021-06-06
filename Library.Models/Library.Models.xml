@@ -1,0 +1,84 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>Library.Models</name>
+    </assembly>
+    <members>
+        <member name="T:Library.Models.Book">
+            <summary>
+            This Model class is used to declare the properties for book.
+            </summary>
+        </member>
+        <member name="P:Library.Models.Book.Id">
+            <summary>
+            Gets or sets identity Value.
+            </summary>
+            <type>int.</type>
+        </member>
+        <member name="P:Library.Models.Book.Title">
+            <summary>
+            Gets or sets the title of the book.
+            </summary>
+            <type>string.</type>
+        </member>
+        <member name="P:Library.Models.Book.ISBN">
+            <summary>
+            Gets or sets the international standard book number.
+            </summary>
+            <type>string.</type>
+        </member>
+        <member name="P:Library.Models.Book.CheckOutDate">
+            <summary>
+            Gets or sets the checkout date of book.
+            </summary>
+            <type>DateTime.</type>
+        </member>
+        <member name="P:Library.Models.Book.ReaderId">
+            <summary>
+            Gets or sets the Reader Id.
+            </summary>
+            <type>int.</type>
+        </member>
+        <member name="P:Library.Models.Book.Reader">
+            <summary>
+            Gets or sets the Reader Object.
+            </summary>
+            <type>Reader.</type>
+        </member>
+        <member name="P:Library.Models.Book.Lost">
+            <summary>
+            Gets or sets a value indicating whether gets or sets a flag value.
+            </summary>
+            <type>bool.</type>
+        </member>
+        <member name="T:Library.Models.Reader">
+            <summary>
+            This Model class is used to declare the properties for reader.
+            </summary>
+        </member>
+        <member name="P:Library.Models.Reader.Id">
+            <summary>
+            Gets or sets identity Value.
+            </summary>
+            <type>int.</type>
+        </member>
+        <member name="P:Library.Models.Reader.Name">
+            <summary>
+            Gets or sets name of the reader.
+            </summary>
+            <type>string.</type>
+        </member>
+        <member name="P:Library.Models.Reader.DOB">
+            <summary>
+            Gets or sets date of birth.
+            </summary>
+            <type>DateTime.</type>
+        </member>
+        <member name="P:Library.Models.Reader.Books">
+            <summary>
+            Gets or sets List of book.
+            </summary>
+            <type>Book.</type>
+        </member>
+    </members>
+</doc>

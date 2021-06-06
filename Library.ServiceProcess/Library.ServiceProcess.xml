@@ -1,0 +1,40 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>Library.ServiceProcess</name>
+    </assembly>
+    <members>
+        <member name="T:Library.ServiceProcess.IReaderService">
+            <summary>
+            This interface will be the middlelayer between service and dataaccess.
+            </summary>
+        </member>
+        <member name="M:Library.ServiceProcess.IReaderService.ListAsync">
+            <summary>
+            List of readers.
+            </summary>
+        </member>
+        <member name="T:Library.ServiceProcess.ReaderService">
+            <summary>
+            This class is used to act as a middlelayer between api and dataaccess.
+            </summary>
+        </member>
+        <member name="F:Library.ServiceProcess.ReaderService._readerRepository">
+            <summary>
+            Private variable for IReaderRepository.
+            </summary>
+        </member>
+        <member name="M:Library.ServiceProcess.ReaderService.#ctor(Library.Repositories.IReaderRepository)">
+            <summary>
+            Parameterized constructor
+            </summary>
+            <param name="readerRepository">IReaderRepository interface.</param>
+        </member>
+        <member name="M:Library.ServiceProcess.ReaderService.ListAsync">
+            <summary>
+            Get the list of readers.
+            </summary>
+            <returns>Returns list of readers.</returns>
+        </member>
+    </members>
+</doc>

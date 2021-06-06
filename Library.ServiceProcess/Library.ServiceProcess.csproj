@@ -4,6 +4,10 @@
     <TargetFramework>netcoreapp3.1</TargetFramework>
   </PropertyGroup>
 
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|AnyCPU'">
+    <DocumentationFile>D:\VisualStudio\RestApi-Library\Library\Library.ServiceProcess\Library.ServiceProcess.xml</DocumentationFile>
+  </PropertyGroup>
+
   <ItemGroup>
     <ProjectReference Include="..\Library.Models\Library.Models.csproj" />
     <ProjectReference Include="..\Library.Repositories\Library.Repositories.csproj" />

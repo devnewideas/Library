@@ -5,6 +5,7 @@
 namespace Library.RestApi
 {
     using Library.Repositories;
+    using Library.RestApi.Extensions;
     using Library.ServiceProcess;
     using Microsoft.AspNetCore.Builder;
     using Microsoft.AspNetCore.Hosting;
@@ -40,6 +41,8 @@ namespace Library.RestApi
         {
             services.AddControllers();
 
+            services.AddCustomSwagger();
+
             services.AddDbContext<AppDbContext>(options =>
             {
                 // Usually, the in-memory provider is used when we write integration tests
@@ -64,6 +67,8 @@ namespace Library.RestApi
             {
                 app.UseDeveloperExceptionPage();
             }
+
+            app.UseCustomSwagger();
 
             app.UseHttpsRedirection();
 

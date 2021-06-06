@@ -1,0 +1,85 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>Library.Repositories</name>
+    </assembly>
+    <members>
+        <member name="T:Library.Repositories.AppDbContext">
+            <summary>
+            This class must inherit DbContext, a class EF Core uses to map your models to database tables.
+            </summary>
+        </member>
+        <member name="P:Library.Repositories.AppDbContext.Readers">
+            <summary>
+            These properties are sets (collections of unique objects) that map models to database tables.
+            </summary>
+        </member>
+        <member name="P:Library.Repositories.AppDbContext.Books">
+            <summary>
+            These properties are sets (collections of unique objects) that map models to database tables.
+            </summary>
+        </member>
+        <member name="M:Library.Repositories.AppDbContext.#ctor(Microsoft.EntityFrameworkCore.DbContextOptions{Library.Repositories.AppDbContext})">
+            <summary>
+            The constructor we added to this class is responsible for passing the database configuration 
+            to the base class through dependency injection.
+            </summary>
+            <param name="options"></param>
+        </member>
+        <member name="M:Library.Repositories.AppDbContext.OnModelCreating(Microsoft.EntityFrameworkCore.ModelBuilder)">
+            <summary>
+            This method is using the feature called Fluent API to specify the database mapping.
+            </summary>
+            <param name="builder"></param>
+        </member>
+        <member name="T:Library.Repositories.BaseRepository">
+            <summary>
+            This class is just an abstract class that all our repositories will inherit. 
+            </summary>
+        </member>
+        <member name="F:Library.Repositories.BaseRepository._context">
+            <summary>
+            A property that can only be accessible by the children classes.
+            </summary>
+        </member>
+        <member name="M:Library.Repositories.BaseRepository.#ctor(Library.Repositories.AppDbContext)">
+            <summary>
+            The BaseRepository receives an instance of our AppDbContext through dependency injection 
+            and exposes a protected property called _context, that gives access to all methods 
+            we need to handle database operations.
+            </summary>
+            <param name="context"></param>
+        </member>
+        <member name="T:Library.Repositories.IReaderRepository">
+            <summary>
+            This interface is used to manage data from databases.
+            </summary>
+        </member>
+        <member name="M:Library.Repositories.IReaderRepository.ListAsync">
+            <summary>
+            Gets list of readers.
+            </summary>
+            <returns>Returns list of readers.</returns>
+        </member>
+        <member name="T:Library.Repositories.ReaderRepository">
+            <summary>
+            This class repository inherits the BaseRepository
+            and implements IReaderRepository.
+            </summary>
+        </member>
+        <member name="M:Library.Repositories.ReaderRepository.#ctor(Library.Repositories.AppDbContext)">
+            <summary>
+            
+            </summary>
+            <param name="context"></param>
+        </member>
+        <member name="M:Library.Repositories.ReaderRepository.ListAsync">
+            <summary>
+            This method is use the Readers  database set to access the Readers table 
+            and then call the extension method ToListAsync which is responsible for transforming
+            the result of a query into a collection of Readers.
+            </summary>
+            <returns></returns>
+        </member>
+    </members>
+</doc>

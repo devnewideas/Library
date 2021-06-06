@@ -1,0 +1,102 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>Library.RestApi</name>
+    </assembly>
+    <members>
+        <member name="T:Library.RestApi.Controllers.BooksController">
+            <summary>
+            This controller is used to trigger the CRUD operations.
+            </summary>
+        </member>
+        <member name="T:Library.RestApi.Controllers.ReadersController">
+            <summary>
+            This controller is used to trigger the CRUD operations.
+            </summary>
+        </member>
+        <member name="F:Library.RestApi.Controllers.ReadersController._readerService">
+            <summary>
+            Declare private variable.
+            </summary>
+        </member>
+        <member name="M:Library.RestApi.Controllers.ReadersController.#ctor(Library.ServiceProcess.IReaderService)">
+            <summary>
+            Parameterized Constructor
+            </summary>
+            <param name="readerService">IReaderService interface</param>
+        </member>
+        <member name="M:Library.RestApi.Controllers.ReadersController.GetAllAsync">
+            <summary>
+            Read the list of readers.
+            </summary>
+            <returns>Returns list of readers.</returns>
+        </member>
+        <member name="T:Library.RestApi.Extensions.SwaggerExtension">
+            <summary>
+            This class acts as a extension for handling swagger.
+            </summary>
+        </member>
+        <member name="M:Library.RestApi.Extensions.SwaggerExtension.AddCustomSwagger(Microsoft.Extensions.DependencyInjection.IServiceCollection)">
+            <summary>
+            This method is used to descripe the swagger description.
+            </summary>
+            <param name="services"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Library.RestApi.Extensions.SwaggerExtension.UseCustomSwagger(Microsoft.AspNetCore.Builder.IApplicationBuilder)">
+            <summary>
+            This method is used to assign endpoint.
+            </summary>
+            <param name="app"></param>
+            <returns></returns>
+        </member>
+        <member name="T:Library.RestApi.Program">
+            <summary>
+            This class is the starting point of this rest service.
+            </summary>
+        </member>
+        <member name="M:Library.RestApi.Program.Main(System.String[])">
+            <summary>
+            It was necessary to change the Main method to guarantee that our database is going to be “created” 
+            when the application starts since we’re using an in-memory provider.Without this change, the readers that we want to seed won’t be created.
+            </summary>
+            <param name="args">argument array.</param>
+        </member>
+        <member name="M:Library.RestApi.Program.CreateHostBuilder(System.String[])">
+            <summary>
+            This method is used to create a host builder.
+            </summary>
+            <param name="args">argument array.</param>
+            <returns>builder for web host.</returns>
+        </member>
+        <member name="T:Library.RestApi.Startup">
+            <summary>
+            This class is used to configure the settings required for start or run the service.
+            </summary>
+        </member>
+        <member name="M:Library.RestApi.Startup.#ctor(Microsoft.Extensions.Configuration.IConfiguration)">
+            <summary>
+            Initializes a new instance of the <see cref="T:Library.RestApi.Startup"/> class.
+            </summary>
+            <param name="configuration">Configuration object.</param>
+        </member>
+        <member name="P:Library.RestApi.Startup.Configuration">
+            <summary>
+            Gets it's the accessor for the Iconfiguration.
+            </summary>
+        </member>
+        <member name="M:Library.RestApi.Startup.ConfigureServices(Microsoft.Extensions.DependencyInjection.IServiceCollection)">
+            <summary>
+            This method gets called by the runtime. Use this method to add services to the container.
+            </summary>
+            <param name="services">IServiceCollection interface.</param>
+        </member>
+        <member name="M:Library.RestApi.Startup.Configure(Microsoft.AspNetCore.Builder.IApplicationBuilder,Microsoft.AspNetCore.Hosting.IWebHostEnvironment)">
+            <summary>
+            This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
+            </summary>
+            <param name="app">IApplicationBuilder interface.</param>
+            <param name="env">IWebHostEnvironment interface.</param>
+        </member>
+    </members>
+</doc>
