@@ -14,6 +14,13 @@
             List of readers.
             </summary>
         </member>
+        <member name="M:Library.ServiceProcess.IReaderService.SaveAsync(Library.Models.Reader)">
+            <summary>
+            This will be used to create the reader details.
+            </summary>
+            <param name="reader"></param>
+            <returns></returns>
+        </member>
         <member name="T:Library.ServiceProcess.ReaderService">
             <summary>
             This class is used to act as a middlelayer between api and dataaccess.
@@ -24,17 +31,30 @@
             Private variable for IReaderRepository.
             </summary>
         </member>
-        <member name="M:Library.ServiceProcess.ReaderService.#ctor(Library.Repositories.IReaderRepository)">
+        <member name="F:Library.ServiceProcess.ReaderService._unitOfWork">
+            <summary>
+            Private variable for IUnitOfWork.
+            </summary>
+        </member>
+        <member name="M:Library.ServiceProcess.ReaderService.#ctor(Library.Repositories.IReaderRepository,Library.Repositories.IUnitOfWork)">
             <summary>
             Parameterized constructor
             </summary>
             <param name="readerRepository">IReaderRepository interface.</param>
+            <param name="unitOfWork">IUnitOfWork interface.</param>
         </member>
         <member name="M:Library.ServiceProcess.ReaderService.ListAsync">
             <summary>
             Get the list of readers.
             </summary>
             <returns>Returns list of readers.</returns>
+        </member>
+        <member name="M:Library.ServiceProcess.ReaderService.SaveAsync(Library.Models.Reader)">
+            <summary>
+            
+            </summary>
+            <param name="reader"></param>
+            <returns></returns>
         </member>
     </members>
 </doc>

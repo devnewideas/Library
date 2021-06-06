@@ -37,6 +37,26 @@
             </summary>
             <returns>Returns list of readers.</returns>
         </member>
+        <member name="M:Library.RestApi.Controllers.ReadersController.PostAsync(Library.Models.SaveReaderResource)">
+            <summary>
+            create a new reader details.
+            </summary>
+            <param name="resource"></param>
+            <returns></returns>
+        </member>
+        <member name="T:Library.RestApi.Extensions.ModelStateExtensions">
+            <summary>
+            This class is act as an extension class.
+            </summary>
+        </member>
+        <member name="M:Library.RestApi.Extensions.ModelStateExtensions.GetErrorMessages(Microsoft.AspNetCore.Mvc.ModelBinding.ModelStateDictionary)">
+            <summary>
+            This method is used to extends the functionality of an already existing class or interface.
+            It's used to convert the validation errors into simple strings to return to the client.
+            </summary>
+            <param name="dictionary"></param>
+            <returns></returns>
+        </member>
         <member name="T:Library.RestApi.Extensions.SwaggerExtension">
             <summary>
             This class acts as a extension for handling swagger.

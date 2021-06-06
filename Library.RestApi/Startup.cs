@@ -53,10 +53,13 @@ namespace Library.RestApi
             });
 
             services.AddScoped<IReaderRepository, ReaderRepository>();
+            
+            services.AddScoped<IUnitOfWork, UnitOfWork>();
 
             services.AddScoped<IReaderService, ReaderService>();
 
-            services.AddAutoMapper(typeof(RequestMapperProfile));
+            services.AddAutoMapper(typeof(RequestMapperProfile),
+                typeof(ResponseMapperProfile));
         }
 
         /// <summary>

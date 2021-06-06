@@ -26,7 +26,7 @@ namespace Library.Repositories
         }
 
         /// <summary>
-        /// This method is use the Readers  database set to access the Readers table 
+        /// This method is use the Readers database set to access the Readers table 
         /// and then call the extension method ToListAsync which is responsible for transforming
         /// the result of a query into a collection of Readers.
         /// </summary>
@@ -34,6 +34,16 @@ namespace Library.Repositories
         public async Task<IEnumerable<Reader>> ListAsync()
         {
             return await _context.Readers.ToListAsync();
+        }
+
+        /// <summary>
+        /// This method is used to create a new record into readers database.
+        /// </summary>
+        /// <param name="reader"></param>
+        /// <returns></returns>
+        public async Task AddAsync(Reader reader)
+        {
+            await _context.Readers.AddAsync(reader);
         }
     }
 }

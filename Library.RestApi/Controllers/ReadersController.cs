@@ -7,6 +7,7 @@ namespace Library.RestApi.Controllers
     using AutoMapper;
     using Library.Models;
     using Library.ServiceProcess;
+    using Library.RestApi.Extensions;
     using Microsoft.AspNetCore.Mvc;
     using System.Collections.Generic;
     using System.Threading.Tasks;
@@ -52,6 +53,29 @@ namespace Library.RestApi.Controllers
             var resources = _mapper.Map<IEnumerable<Library.Models.Reader>, IEnumerable<Library.Models.ReaderResource>>(readers);
             
             return resources;
+        }
+
+        /// <summary>
+        /// create a new reader details.
+        /// </summary>
+        /// <param name="resource"></param>
+        /// <returns></returns>
+        [HttpPost]
+        public async Task<IActionResult> PostAsync([FromBody] SaveReaderResource resource)
+        {
+            if (!ModelState.IsValid)
+                return BadRequest(ModelState.GetErrorMessages());
+
+            var reader = _mapper.Map<SaveReaderResource, Reader>(resource);
+
+            var result = await _readerService.SaveAsync(reader);
+
+            if (!result.Success)
+                return BadRequest(result.Message);
+
+            var readerResource = _mapper.Map<Reader, ReaderResource>(result.Reader);
+
+            return Ok(readerResource);
         }
 
     }

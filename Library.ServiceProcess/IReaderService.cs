@@ -17,5 +17,12 @@ namespace Library.ServiceProcess
         /// List of readers.
         /// </summary>
         Task<IEnumerable<Reader>> ListAsync();
+
+        /// <summary>
+        /// This will be used to create the reader details.
+        /// </summary>
+        /// <param name="reader"></param>
+        /// <returns></returns>
+        Task<SaveReaderResponse> SaveAsync(Reader reader);
     }
 }

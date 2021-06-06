@@ -61,6 +61,24 @@
             </summary>
             <returns>Returns list of readers.</returns>
         </member>
+        <member name="M:Library.Repositories.IReaderRepository.AddAsync(Library.Models.Reader)">
+            <summary>
+            create a new record into database.
+            </summary>
+            <param name="reader"></param>
+            <returns></returns>
+        </member>
+        <member name="T:Library.Repositories.IUnitOfWork">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="M:Library.Repositories.IUnitOfWork.CompleteAsync">
+            <summary>
+            
+            </summary>
+            <returns></returns>
+        </member>
         <member name="T:Library.Repositories.ReaderRepository">
             <summary>
             This class repository inherits the BaseRepository
@@ -75,9 +93,38 @@
         </member>
         <member name="M:Library.Repositories.ReaderRepository.ListAsync">
             <summary>
-            This method is use the Readers  database set to access the Readers table 
+            This method is use the Readers database set to access the Readers table 
             and then call the extension method ToListAsync which is responsible for transforming
             the result of a query into a collection of Readers.
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:Library.Repositories.ReaderRepository.AddAsync(Library.Models.Reader)">
+            <summary>
+            This method is used to create a new record into readers database.
+            </summary>
+            <param name="reader"></param>
+            <returns></returns>
+        </member>
+        <member name="T:Library.Repositories.UnitOfWork">
+            <summary>
+            This class that receives our AppDbContext instance as a dependency and exposes methods to start, complete or abort transactions.
+            </summary>
+        </member>
+        <member name="F:Library.Repositories.UnitOfWork._context">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="M:Library.Repositories.UnitOfWork.#ctor(Library.Repositories.AppDbContext)">
+            <summary>
+            
+            </summary>
+            <param name="context"></param>
+        </member>
+        <member name="M:Library.Repositories.UnitOfWork.CompleteAsync">
+            <summary>
+            
             </summary>
             <returns></returns>
         </member>

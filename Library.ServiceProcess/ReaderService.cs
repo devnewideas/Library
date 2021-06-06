@@ -23,12 +23,19 @@ namespace Library.ServiceProcess
         private readonly IReaderRepository _readerRepository;
 
         /// <summary>
+        /// Private variable for IUnitOfWork.
+        /// </summary>
+        private readonly IUnitOfWork _unitOfWork;
+
+        /// <summary>
         /// Parameterized constructor
         /// </summary>
         /// <param name="readerRepository">IReaderRepository interface.</param>
-        public ReaderService(IReaderRepository readerRepository)
+        /// <param name="unitOfWork">IUnitOfWork interface.</param>
+        public ReaderService(IReaderRepository readerRepository, IUnitOfWork unitOfWork)
         {
-            this._readerRepository = readerRepository;
+            _readerRepository = readerRepository;
+            _unitOfWork = unitOfWork;
         }
 
         /// <summary>
@@ -38,6 +45,26 @@ namespace Library.ServiceProcess
         public async Task<IEnumerable<Reader>> ListAsync()
         {
             return await _readerRepository.ListAsync();
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="reader"></param>
+        /// <returns></returns>
+        public async Task<SaveReaderResponse> SaveAsync(Reader reader)
+        {
+            try
+            {
+                await _readerRepository.AddAsync(reader);
+                await _unitOfWork.CompleteAsync();
+
+                return new SaveReaderResponse(reader);
+            }
+            catch (Exception ex)
+            {
+                return new SaveReaderResponse($"An error occurred when saving the reader: {ex.Message}");
+            }
         }
     }
 }

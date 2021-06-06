@@ -4,6 +4,28 @@
         <name>Library.Models</name>
     </assembly>
     <members>
+        <member name="T:Library.Models.BaseResponse">
+            <summary>
+            This class is used to handle the baseresponse.
+            </summary>
+        </member>
+        <member name="P:Library.Models.BaseResponse.Success">
+            <summary>
+            This property will tell whether requests were completed successfully.
+            </summary>
+        </member>
+        <member name="P:Library.Models.BaseResponse.Message">
+            <summary>
+            This property will have the error message if something fails.
+            </summary>
+        </member>
+        <member name="M:Library.Models.BaseResponse.#ctor(System.Boolean,System.String)">
+            <summary>
+            
+            </summary>
+            <param name="success"></param>
+            <param name="message"></param>
+        </member>
         <member name="T:Library.Models.Book">
             <summary>
             This Model class is used to declare the properties for book.
@@ -102,6 +124,55 @@
             Gets or sets date of birth.
             </summary>
             <type>DateTime.</type>
+        </member>
+        <member name="T:Library.Models.SaveReaderResource">
+            <summary>
+            This class is used to create a new reader details.
+            </summary>
+        </member>
+        <member name="P:Library.Models.SaveReaderResource.Name">
+            <summary>
+            Gets or sets name of the reader.
+            </summary>
+            <type>string.</type>
+        </member>
+        <member name="P:Library.Models.SaveReaderResource.DOB">
+            <summary>
+            Gets or sets date of birth.
+            </summary>
+            <type>DateTime.</type>
+        </member>
+        <member name="T:Library.Models.SaveReaderResponse">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="P:Library.Models.SaveReaderResponse.Reader">
+            <summary>
+            This property is going to contain our reader data if the request successfully finishes.
+            </summary>
+        </member>
+        <member name="M:Library.Models.SaveReaderResponse.#ctor(System.Boolean,System.String,Library.Models.Reader)">
+            <summary>
+            This constructor is used to pass the success and message parameters to the base class
+            and also sets the reader property.
+            </summary>
+            <param name="success"></param>
+            <param name="message"></param>
+            <param name="reader"></param>
+        </member>
+        <member name="M:Library.Models.SaveReaderResponse.#ctor(Library.Models.Reader)">
+            <summary>
+            This constructor that receives only the reader as a parameter.
+            Creates a success response, calling the private constructor to set the respective properties.
+            </summary>
+            <param name="reader"></param>
+        </member>
+        <member name="M:Library.Models.SaveReaderResponse.#ctor(System.String)">
+            <summary>
+            This constructor will be used to creates a error response.
+            </summary>
+            <param name="message"></param>
         </member>
     </members>
 </doc>

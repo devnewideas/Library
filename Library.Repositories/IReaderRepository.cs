@@ -20,5 +20,12 @@ namespace Library.Repositories
         /// </summary>
         /// <returns>Returns list of readers.</returns>
         Task<IEnumerable<Reader>> ListAsync();
+
+        /// <summary>
+        /// create a new record into database.
+        /// </summary>
+        /// <param name="reader"></param>
+        /// <returns></returns>
+        Task AddAsync(Reader reader);
     }
 }
