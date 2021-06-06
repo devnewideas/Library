@@ -9,7 +9,8 @@ namespace Library.RestApi.Controllers
     /// <summary>
     /// This controller is used to trigger the CRUD operations.
     /// </summary>
-    [Route("api/[controller]")]
+    [Route("api/books")]
+    [Produces("application/json")]
     [ApiController]
     public class BooksController : ControllerBase
     {

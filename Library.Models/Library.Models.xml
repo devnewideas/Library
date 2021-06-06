@@ -83,6 +83,75 @@
             </summary>
             <type>bool.</type>
         </member>
+        <member name="T:Library.Models.BookResource">
+            <summary>
+            This Model class is used to declare the properties for book.
+            </summary>
+        </member>
+        <member name="P:Library.Models.BookResource.Id">
+            <summary>
+            Gets or sets identity Value.
+            </summary>
+            <type>int.</type>
+        </member>
+        <member name="P:Library.Models.BookResource.Title">
+            <summary>
+            Gets or sets the title of the book.
+            </summary>
+            <type>string.</type>
+        </member>
+        <member name="P:Library.Models.BookResource.ISBN">
+            <summary>
+            Gets or sets the international standard book number.
+            </summary>
+            <type>string.</type>
+        </member>
+        <member name="P:Library.Models.BookResource.CheckOutDate">
+            <summary>
+            Gets or sets the checkout date of book.
+            </summary>
+            <type>DateTime.</type>
+        </member>
+        <member name="P:Library.Models.BookResource.Reader">
+            <summary>
+            Gets or sets the Reader Object.
+            </summary>
+            <type>Reader.</type>
+        </member>
+        <member name="P:Library.Models.BookResource.Lost">
+            <summary>
+            Gets or sets a value indicating whether gets or sets a flag value.
+            </summary>
+            <type>bool.</type>
+        </member>
+        <member name="T:Library.Models.BookResponse">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="M:Library.Models.BookResponse.#ctor(Library.Models.Book)">
+            <summary>
+            This constructor that receives only the book as a parameter.
+            Creates a success response, calling the private constructor to set the respective properties.
+            </summary>
+            <param name="book"></param>
+        </member>
+        <member name="M:Library.Models.BookResponse.#ctor(System.String)">
+            <summary>
+            This constructor will be used to creates a error response.
+            </summary>
+            <param name="message"></param>
+        </member>
+        <member name="T:Library.Models.BooksQueryResource">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="P:Library.Models.BooksQueryResource.ReaderId">
+            <summary>
+            
+            </summary>
+        </member>
         <member name="T:Library.Models.ErrorResource">
             <summary>
             
@@ -109,6 +178,26 @@
             
             </summary>
             <param name="message"></param>
+        </member>
+        <member name="T:Library.Models.QueryResource">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="P:Library.Models.QueryResource.Page">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="T:Library.Models.QueryResultResource`1">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="P:Library.Models.QueryResultResource`1.BookList">
+            <summary>
+            
+            </summary>
         </member>
         <member name="T:Library.Models.Reader">
             <summary>
@@ -179,6 +268,41 @@
             This constructor will be used to creates a error response.
             </summary>
             <param name="message"></param>
+        </member>
+        <member name="T:Library.Models.SaveBookResource">
+            <summary>
+            This class is used to create a new reader details.
+            </summary>
+        </member>
+        <member name="P:Library.Models.SaveBookResource.Title">
+            <summary>
+            Gets or sets title of the book.
+            </summary>
+            <type>string.</type>
+        </member>
+        <member name="P:Library.Models.SaveBookResource.ISBN">
+            <summary>
+            Gets or sets the international standard book number.
+            </summary>
+            <type>string.</type>
+        </member>
+        <member name="P:Library.Models.SaveBookResource.CheckOutDate">
+            <summary>
+            Gets or sets the checkout date of book.
+            </summary>
+            <type>DateTime.</type>
+        </member>
+        <member name="P:Library.Models.SaveBookResource.ReaderId">
+            <summary>
+            Gets or sets the Reader Id.
+            </summary>
+            <type>int.</type>
+        </member>
+        <member name="P:Library.Models.SaveBookResource.Lost">
+            <summary>
+            Gets or sets a value indicating whether gets or sets a flag value.
+            </summary>
+            <type>bool.</type>
         </member>
         <member name="T:Library.Models.SaveReaderResource">
             <summary>
