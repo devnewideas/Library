@@ -17,5 +17,10 @@ namespace Library.Models
         /// 
         /// </summary>
         public int Page { get; set; }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        public int ItemsPerPage { get; set; }
     }
 }

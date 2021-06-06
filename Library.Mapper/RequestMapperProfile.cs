@@ -6,7 +6,6 @@ namespace Library.Mapper
 {
     using AutoMapper;
     using Library.Models;
-    using System;
 
     /// <summary>
     /// The class inherits Profile, a class type that AutoMapper uses to check how our mappings will work.
@@ -19,6 +18,10 @@ namespace Library.Mapper
         public RequestMapperProfile()
         {
             CreateMap<Reader, ReaderResource>();
+
+            CreateMap<Book, BookResource>();
+
+            CreateMap<QueryResult<Book>, QueryResultResource<BookResource>>();
         }
     }
 }

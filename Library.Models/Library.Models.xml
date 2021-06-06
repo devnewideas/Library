@@ -142,6 +142,24 @@
             </summary>
             <param name="message"></param>
         </member>
+        <member name="T:Library.Models.BooksQuery">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="P:Library.Models.BooksQuery.ReaderId">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="M:Library.Models.BooksQuery.#ctor(System.Nullable{System.Int32},System.Int32,System.Int32)">
+            <summary>
+            
+            </summary>
+            <param name="readerId"></param>
+            <param name="page"></param>
+            <param name="itemsPerPage"></param>
+        </member>
         <member name="T:Library.Models.BooksQueryResource">
             <summary>
             
@@ -179,6 +197,28 @@
             </summary>
             <param name="message"></param>
         </member>
+        <member name="T:Library.Models.Query">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="P:Library.Models.Query.Page">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="P:Library.Models.Query.ItemsPerPage">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="M:Library.Models.Query.#ctor(System.Int32,System.Int32)">
+            <summary>
+            
+            </summary>
+            <param name="page"></param>
+            <param name="itemsPerPage"></param>
+        </member>
         <member name="T:Library.Models.QueryResource">
             <summary>
             
@@ -189,12 +229,28 @@
             
             </summary>
         </member>
+        <member name="P:Library.Models.QueryResource.ItemsPerPage">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="T:Library.Models.QueryResult`1">
+            <summary>
+            
+            </summary>
+            <typeparam name="T"></typeparam>
+        </member>
+        <member name="P:Library.Models.QueryResult`1.Items">
+            <summary>
+            
+            </summary>
+        </member>
         <member name="T:Library.Models.QueryResultResource`1">
             <summary>
             
             </summary>
         </member>
-        <member name="P:Library.Models.QueryResultResource`1.BookList">
+        <member name="P:Library.Models.QueryResultResource`1.Items">
             <summary>
             
             </summary>

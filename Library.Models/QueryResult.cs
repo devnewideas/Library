@@ -1,17 +1,16 @@
-﻿// <copyright file="QueryResultResource.cs" company="PlaceholderCompany">
+﻿// <copyright file="QueryResult.cs" company="PlaceholderCompany">
 // Copyright (c) PlaceholderCompany. All rights reserved.
 // </copyright>
 
 namespace Library.Models
 {
-    using System;
     using System.Collections.Generic;
-    using System.Text;
 
     /// <summary>
     /// 
     /// </summary>
-    public class QueryResultResource<T>
+    /// <typeparam name="T"></typeparam>
+    public class QueryResult<T>
     {
         /// <summary>
         /// 
