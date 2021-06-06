@@ -24,5 +24,13 @@ namespace Library.ServiceProcess
         /// <param name="reader"></param>
         /// <returns></returns>
         Task<SaveReaderResponse> SaveAsync(Reader reader);
+
+        /// <summary>
+        /// Update the reader details.
+        /// </summary>
+        /// <param name="id"></param>
+        /// <param name="reader"></param>
+        /// <returns></returns>
+        Task<SaveReaderResponse> UpdateAsync(int id, Reader reader);
     }
 }

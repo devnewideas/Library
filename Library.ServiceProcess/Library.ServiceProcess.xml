@@ -21,6 +21,14 @@
             <param name="reader"></param>
             <returns></returns>
         </member>
+        <member name="M:Library.ServiceProcess.IReaderService.UpdateAsync(System.Int32,Library.Models.Reader)">
+            <summary>
+            Update the reader details.
+            </summary>
+            <param name="id"></param>
+            <param name="reader"></param>
+            <returns></returns>
+        </member>
         <member name="T:Library.ServiceProcess.ReaderService">
             <summary>
             This class is used to act as a middlelayer between api and dataaccess.
@@ -51,8 +59,16 @@
         </member>
         <member name="M:Library.ServiceProcess.ReaderService.SaveAsync(Library.Models.Reader)">
             <summary>
-            
+            Create a new item in reader table.
             </summary>
+            <param name="reader"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Library.ServiceProcess.ReaderService.UpdateAsync(System.Int32,Library.Models.Reader)">
+            <summary>
+            Update a reader record.
+            </summary>
+            <param name="id"></param>
             <param name="reader"></param>
             <returns></returns>
         </member>

@@ -68,6 +68,19 @@
             <param name="reader"></param>
             <returns></returns>
         </member>
+        <member name="M:Library.Repositories.IReaderRepository.FindByIdAsync(System.Int32)">
+            <summary>
+            Get the data based on id.
+            </summary>
+            <param name="id"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Library.Repositories.IReaderRepository.Update(Library.Models.Reader)">
+            <summary>
+            Update the record.
+            </summary>
+            <param name="reader"></param>
+        </member>
         <member name="T:Library.Repositories.IUnitOfWork">
             <summary>
             
@@ -105,6 +118,19 @@
             </summary>
             <param name="reader"></param>
             <returns></returns>
+        </member>
+        <member name="M:Library.Repositories.ReaderRepository.FindByIdAsync(System.Int32)">
+            <summary>
+            This will asynchronously return a reader from the database.
+            </summary>
+            <param name="id"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Library.Repositories.ReaderRepository.Update(Library.Models.Reader)">
+            <summary>
+            This will be used to update the reader into the database.
+            </summary>
+            <param name="reader"></param>
         </member>
         <member name="T:Library.Repositories.UnitOfWork">
             <summary>

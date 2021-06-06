@@ -56,7 +56,7 @@ namespace Library.RestApi.Controllers
         }
 
         /// <summary>
-        /// create a new reader details.
+        /// Create a new reader details.
         /// </summary>
         /// <param name="resource"></param>
         /// <returns></returns>
@@ -75,6 +75,28 @@ namespace Library.RestApi.Controllers
 
             var readerResource = _mapper.Map<Reader, ReaderResource>(result.Reader);
 
+            return Ok(readerResource);
+        }
+
+        /// <summary>
+        /// Update the reader details.
+        /// </summary>
+        /// <param name="id"></param>
+        /// <param name="resource"></param>
+        /// <returns></returns>
+        [HttpPut("{id}")]
+        public async Task<IActionResult> PutAsync(int id, [FromBody] SaveReaderResource resource)
+        {
+            if (!ModelState.IsValid)
+                return BadRequest(ModelState.GetErrorMessages());
+
+            var reader = _mapper.Map<SaveReaderResource, Reader>(resource);
+            var result = await _readerService.UpdateAsync(id, reader);
+
+            if (!result.Success)
+                return BadRequest(result.Message);
+
+            var readerResource = _mapper.Map<Reader, ReaderResource>(result.Reader);
             return Ok(readerResource);
         }
 

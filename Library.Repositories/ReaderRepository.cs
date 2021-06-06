@@ -45,5 +45,24 @@ namespace Library.Repositories
         {
             await _context.Readers.AddAsync(reader);
         }
+
+        /// <summary>
+        /// This will asynchronously return a reader from the database.
+        /// </summary>
+        /// <param name="id"></param>
+        /// <returns></returns>
+        public async Task<Reader> FindByIdAsync(int id)
+        {
+            return await _context.Readers.FindAsync(id);
+        }
+
+        /// <summary>
+        /// This will be used to update the reader into the database.
+        /// </summary>
+        /// <param name="reader"></param>
+        public void Update(Reader reader)
+        {
+            _context.Readers.Update(reader);
+        }
     }
 }

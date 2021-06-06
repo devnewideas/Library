@@ -39,8 +39,16 @@
         </member>
         <member name="M:Library.RestApi.Controllers.ReadersController.PostAsync(Library.Models.SaveReaderResource)">
             <summary>
-            create a new reader details.
+            Create a new reader details.
             </summary>
+            <param name="resource"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Library.RestApi.Controllers.ReadersController.PutAsync(System.Int32,Library.Models.SaveReaderResource)">
+            <summary>
+            Update the reader details.
+            </summary>
+            <param name="id"></param>
             <param name="resource"></param>
             <returns></returns>
         </member>

@@ -48,7 +48,7 @@ namespace Library.ServiceProcess
         }
 
         /// <summary>
-        /// 
+        /// Create a new item in reader table.
         /// </summary>
         /// <param name="reader"></param>
         /// <returns></returns>
@@ -64,6 +64,35 @@ namespace Library.ServiceProcess
             catch (Exception ex)
             {
                 return new SaveReaderResponse($"An error occurred when saving the reader: {ex.Message}");
+            }
+        }
+
+        /// <summary>
+        /// Update a reader record.
+        /// </summary>
+        /// <param name="id"></param>
+        /// <param name="reader"></param>
+        /// <returns></returns>
+        public async Task<SaveReaderResponse> UpdateAsync(int id, Reader reader)
+        {
+            var existingReader = await _readerRepository.FindByIdAsync(id);
+
+            if (existingReader == null)
+                return new SaveReaderResponse("Reader not found.");
+
+            existingReader.Name = reader.Name;
+            existingReader.DOB = reader.DOB;
+
+            try
+            {
+                _readerRepository.Update(existingReader);
+                await _unitOfWork.CompleteAsync();
+
+                return new SaveReaderResponse(existingReader);
+            }
+            catch (Exception ex)
+            {
+                return new SaveReaderResponse($"An error occurred when updating the reader: {ex.Message}");
             }
         }
     }
