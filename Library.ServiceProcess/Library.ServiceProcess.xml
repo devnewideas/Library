@@ -97,14 +97,9 @@
             This interface will be the middlelayer between service and dataaccess.
             </summary>
         </member>
-        <member name="M:Library.ServiceProcess.IReaderService.ListAsync">
+        <member name="M:Library.ServiceProcess.IReaderService.ListAsync(Library.Models.ReadersQuery)">
             <summary>
             List of readers.
-            </summary>
-        </member>
-        <member name="M:Library.ServiceProcess.IReaderService.SingleAsync(System.String)">
-            <summary>
-            Returns reader details.
             </summary>
         </member>
         <member name="M:Library.ServiceProcess.IReaderService.SaveAsync(Library.Models.Reader)">
@@ -151,17 +146,11 @@
             <param name="readerRepository">IReaderRepository interface.</param>
             <param name="unitOfWork">IUnitOfWork interface.</param>
         </member>
-        <member name="M:Library.ServiceProcess.ReaderService.ListAsync">
+        <member name="M:Library.ServiceProcess.ReaderService.ListAsync(Library.Models.ReadersQuery)">
             <summary>
             Get the list of readers.
             </summary>
             <returns>Returns list of readers.</returns>
-        </member>
-        <member name="M:Library.ServiceProcess.ReaderService.SingleAsync(System.String)">
-            <summary>
-            Get the reader details.
-            </summary>
-            <returns>Returns reader details.</returns>
         </member>
         <member name="M:Library.ServiceProcess.ReaderService.SaveAsync(Library.Models.Reader)">
             <summary>

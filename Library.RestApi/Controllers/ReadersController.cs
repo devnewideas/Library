@@ -46,33 +46,15 @@ namespace Library.RestApi.Controllers
         /// </summary>
         /// <returns>Returns list of readers.</returns>
         [HttpGet]
-        [ProducesResponseType(typeof(IEnumerable<ReaderResource>), 200)]
-        public async Task<IEnumerable<ReaderResource>> GetAllAsync()
+        [ProducesResponseType(typeof(QueryResultResource<ReaderResource>), 200)]
+        public async Task<QueryResultResource<ReaderResource>> GetAllAsync([FromQuery] ReadersQueryResource query)
         {
-            var readers = await _readerService.ListAsync();
+            var readersQuery = _mapper.Map<ReadersQueryResource, ReadersQuery>(query);
+            var queryResult = await _readerService.ListAsync(readersQuery);
+
+            var resource = _mapper.Map<QueryResult<Library.Models.Reader>, QueryResultResource<Library.Models.ReaderResource>>(queryResult);
             
-            var resources = _mapper.Map<IEnumerable<Library.Models.Reader>, IEnumerable<Library.Models.ReaderResource>>(readers);
-            
-            return resources;
-        }
-
-        /// <summary>
-        /// Get the reader based on name.
-        /// </summary>
-        /// <returns>Returns reader details.</returns>
-        [HttpGet("{name}")]
-        [ProducesResponseType(typeof(ReaderResource), 200)]
-        [ProducesResponseType(typeof(ErrorResource), 404)]
-        public async Task<IActionResult> GetAsync(string name)
-        {
-            var result = await _readerService.SingleAsync(name);
-
-            if (!result.Success)
-                return BadRequest(new ErrorResource(result.Message));
-
-            var reader = _mapper.Map<Library.Models.Reader, Library.Models.ReaderResource>(result.Resource);
-
-            return Ok(reader);
+            return resource;
         }
 
         /// <summary>

@@ -152,7 +152,7 @@
             This interface is used to manage data from databases.
             </summary>
         </member>
-        <member name="M:Library.Repositories.IReaderRepository.ListAsync">
+        <member name="M:Library.Repositories.IReaderRepository.ListAsync(Library.Models.ReadersQuery)">
             <summary>
             Gets list of readers.
             </summary>
@@ -214,7 +214,7 @@
             </summary>
             <param name="context"></param>
         </member>
-        <member name="M:Library.Repositories.ReaderRepository.ListAsync">
+        <member name="M:Library.Repositories.ReaderRepository.ListAsync(Library.Models.ReadersQuery)">
             <summary>
             This method is use the Readers database set to access the Readers table 
             and then call the extension method ToListAsync which is responsible for transforming

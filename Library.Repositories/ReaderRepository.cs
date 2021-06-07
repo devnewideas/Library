@@ -8,6 +8,7 @@ namespace Library.Repositories
     using Microsoft.EntityFrameworkCore;
     using System;
     using System.Collections.Generic;
+    using System.Linq;
     using System.Text;
     using System.Threading.Tasks;
 
@@ -31,9 +32,30 @@ namespace Library.Repositories
         /// the result of a query into a collection of Readers.
         /// </summary>
         /// <returns></returns>
-        public async Task<IEnumerable<Reader>> ListAsync()
+        public async Task<QueryResult<Reader>> ListAsync(ReadersQuery query)
         {
-            return await _context.Readers.ToListAsync();
+            IQueryable<Reader> queryable = _context.Readers
+                                                    .Select(p=>p)
+                                                    .AsNoTracking();
+
+            // AsNoTracking tells EF Core it doesn't need to track changes on listed entities. Disabling entity
+            // tracking makes the code a little faster
+            if (!string.IsNullOrEmpty(query.Name))
+            {
+                queryable = queryable.Where(p => p.Name == query.Name);
+            }
+
+            // Here I apply a simple calculation to skip a given number of items, according to the current page and amount of items per page,
+            // and them I return only the amount of desired items. The methods "Skip" and "Take" do the trick here.
+            List<Reader> readers = await queryable.Skip((query.Page - 1) * query.ItemsPerPage)
+                                                    .Take(query.ItemsPerPage)
+                                                    .ToListAsync();
+
+            // Finally I return a query result, containing all items and the amount of items in the database (necessary for client-side calculations ).
+            return new QueryResult<Reader>
+            {
+                Items = readers,
+            };
         }
 
         /// <summary>

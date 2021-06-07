@@ -325,6 +325,34 @@
             </summary>
             <param name="message"></param>
         </member>
+        <member name="T:Library.Models.ReadersQuery">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="P:Library.Models.ReadersQuery.Name">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="M:Library.Models.ReadersQuery.#ctor(System.String,System.Int32,System.Int32)">
+            <summary>
+            
+            </summary>
+            <param name="name"></param>
+            <param name="page"></param>
+            <param name="itemsPerPage"></param>
+        </member>
+        <member name="T:Library.Models.ReadersQueryResource">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="P:Library.Models.ReadersQueryResource.Name">
+            <summary>
+            
+            </summary>
+        </member>
         <member name="T:Library.Models.SaveBookResource">
             <summary>
             This class is used to create a new reader details.

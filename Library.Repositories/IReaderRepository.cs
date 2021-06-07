@@ -19,7 +19,7 @@ namespace Library.Repositories
         /// Gets list of readers.
         /// </summary>
         /// <returns>Returns list of readers.</returns>
-        Task<IEnumerable<Reader>> ListAsync();
+        Task<QueryResult<Reader>> ListAsync(ReadersQuery query);
 
         /// <summary>
         /// create a new record into database.

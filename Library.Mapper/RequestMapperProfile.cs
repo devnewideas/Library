@@ -19,6 +19,8 @@ namespace Library.Mapper
         {
             CreateMap<Reader, ReaderResource>();
 
+            CreateMap<QueryResult<Reader>, QueryResultResource<ReaderResource>>();
+
             CreateMap<Book, BookResource>();
 
             CreateMap<QueryResult<Book>, QueryResultResource<BookResource>>();

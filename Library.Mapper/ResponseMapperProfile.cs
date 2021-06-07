@@ -19,6 +19,8 @@ namespace Library.Mapper
         {
             CreateMap<SaveReaderResource, Reader>();
 
+            CreateMap<ReadersQueryResource, ReadersQuery>();
+
             CreateMap<SaveBookResource, Book>();
 
             CreateMap<BooksQueryResource, BooksQuery>();

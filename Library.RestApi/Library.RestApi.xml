@@ -66,17 +66,11 @@
             <param name="readerService">IReaderService interface</param>
             <param name="mapper">IMapper interface</param>
         </member>
-        <member name="M:Library.RestApi.Controllers.ReadersController.GetAllAsync">
+        <member name="M:Library.RestApi.Controllers.ReadersController.GetAllAsync(Library.Models.ReadersQueryResource)">
             <summary>
             Read the list of readers.
             </summary>
             <returns>Returns list of readers.</returns>
-        </member>
-        <member name="M:Library.RestApi.Controllers.ReadersController.GetAsync(System.String)">
-            <summary>
-            Get the reader based on name.
-            </summary>
-            <returns>Returns reader details.</returns>
         </member>
         <member name="M:Library.RestApi.Controllers.ReadersController.PostAsync(Library.Models.SaveReaderResource)">
             <summary>
