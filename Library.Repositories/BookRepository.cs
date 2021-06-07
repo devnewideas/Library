@@ -82,6 +82,17 @@ namespace Library.Repositories
         }
 
         /// <summary>
+        /// This will asynchronously return a reader from the database.
+        /// </summary>
+        /// <param name="isbn"></param>
+        /// <returns></returns>
+        public async Task<Book> FindByIsbnAsync(string isbn)
+        {
+            return await _context.Books
+                .FirstOrDefaultAsync(p => p.ISBN == isbn);
+        }
+
+        /// <summary>
         /// This will be used to update the book into the database.
         /// </summary>
         /// <param name="book"></param>

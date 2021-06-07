@@ -63,15 +63,14 @@ namespace Library.ServiceProcess
         {
             try
             {
-                /*
-                 Notice here we have to check if the reader ID is valid before adding the book, to avoid errors.
-                 You can create a method into the ReaderService class to return the reader and inject the service here if you prefer, but 
-                 it doesn't matter given the API scope.
-                */
-
+                // Notice here we have to check if the reader ID is valid before adding the book, to avoid errors.
                 var existingReader = await _readerRepository.FindByIdAsync(book.ReaderId);
                 if (existingReader == null)
                     return new BookResponse("Invalid reader.");
+
+                var existingBookDetails = await _bookRepository.FindByIsbnAsync(book.ISBN);
+                if (existingBookDetails != null)
+                    return new BookResponse("Book is already exists.");
 
                 await _bookRepository.AddAsync(book);
                 await _unitOfWork.CompleteAsync();

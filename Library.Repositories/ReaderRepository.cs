@@ -49,6 +49,17 @@ namespace Library.Repositories
         /// <summary>
         /// This will asynchronously return a reader from the database.
         /// </summary>
+        /// <param name="name"></param>
+        /// <returns></returns>
+        public async Task<Reader> FindByNameAsync(string name)
+        {
+            return await _context.Readers
+                .FirstOrDefaultAsync(p => p.Name == name);
+        }
+
+        /// <summary>
+        /// This will asynchronously return a reader from the database.
+        /// </summary>
         /// <param name="id"></param>
         /// <returns></returns>
         public async Task<Reader> FindByIdAsync(int id)

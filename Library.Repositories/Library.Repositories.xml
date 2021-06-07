@@ -84,6 +84,13 @@
             <param name="id"></param>
             <returns></returns>
         </member>
+        <member name="M:Library.Repositories.BookRepository.FindByIsbnAsync(System.String)">
+            <summary>
+            This will asynchronously return a reader from the database.
+            </summary>
+            <param name="isbn"></param>
+            <returns></returns>
+        </member>
         <member name="M:Library.Repositories.BookRepository.Update(Library.Models.Book)">
             <summary>
             This will be used to update the book into the database.
@@ -121,6 +128,13 @@
             <param name="id"></param>
             <returns></returns>
         </member>
+        <member name="M:Library.Repositories.IBookRepository.FindByIsbnAsync(System.String)">
+            <summary>
+            Get the data based on isbn.
+            </summary>
+            <param name="name"></param>
+            <returns></returns>
+        </member>
         <member name="M:Library.Repositories.IBookRepository.Update(Library.Models.Book)">
             <summary>
             Update the record.
@@ -156,6 +170,13 @@
             Get the data based on id.
             </summary>
             <param name="id"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Library.Repositories.IReaderRepository.FindByNameAsync(System.String)">
+            <summary>
+            Get the data based on name.
+            </summary>
+            <param name="name"></param>
             <returns></returns>
         </member>
         <member name="M:Library.Repositories.IReaderRepository.Update(Library.Models.Reader)">
@@ -206,6 +227,13 @@
             This method is used to create a new record into readers database.
             </summary>
             <param name="reader"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Library.Repositories.ReaderRepository.FindByNameAsync(System.String)">
+            <summary>
+            This will asynchronously return a reader from the database.
+            </summary>
+            <param name="name"></param>
             <returns></returns>
         </member>
         <member name="M:Library.Repositories.ReaderRepository.FindByIdAsync(System.Int32)">

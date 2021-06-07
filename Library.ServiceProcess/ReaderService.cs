@@ -73,6 +73,11 @@ namespace Library.ServiceProcess
         {
             try
             {
+                var existingReader = await _readerRepository.FindByNameAsync(reader.Name);
+
+                if (existingReader != null)
+                    return new ReaderResponse("Reader already exists.");
+
                 await _readerRepository.AddAsync(reader);
                 await _unitOfWork.CompleteAsync();
 

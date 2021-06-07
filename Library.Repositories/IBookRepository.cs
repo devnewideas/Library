@@ -33,6 +33,13 @@ namespace Library.Repositories
         Task<Book> FindByIdAsync(int id);
 
         /// <summary>
+        /// Get the data based on isbn.
+        /// </summary>
+        /// <param name="name"></param>
+        /// <returns></returns>
+        Task<Book> FindByIsbnAsync(string name);
+
+        /// <summary>
         /// Update the record.
         /// </summary>
         /// <param name="book"></param>

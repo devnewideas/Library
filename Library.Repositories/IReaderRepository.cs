@@ -34,7 +34,14 @@ namespace Library.Repositories
         /// <param name="id"></param>
         /// <returns></returns>
         Task<Reader> FindByIdAsync(int id);
-        
+
+        /// <summary>
+        /// Get the data based on name.
+        /// </summary>
+        /// <param name="name"></param>
+        /// <returns></returns>
+        Task<Reader> FindByNameAsync(string name);
+
         /// <summary>
         /// Update the record.
         /// </summary>
