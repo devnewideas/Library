@@ -36,7 +36,7 @@ namespace Library.Models
 
             if (ItemsPerPage <= 0)
             {
-                ItemsPerPage = 5;
+                ItemsPerPage = 2;
             }
         }
     }
