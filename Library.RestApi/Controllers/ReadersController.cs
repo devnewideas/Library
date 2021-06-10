@@ -67,9 +67,6 @@ namespace Library.RestApi.Controllers
         [ProducesResponseType(typeof(ErrorResource), 400)]
         public async Task<IActionResult> PostAsync([FromBody] SaveReaderResource resource)
         {
-            //if (!ModelState.IsValid)
-            //    return BadRequest(ModelState.GetErrorMessages());
-
             var reader = _mapper.Map<SaveReaderResource, Reader>(resource);
 
             var result = await _readerService.SaveAsync(reader);
@@ -93,9 +90,6 @@ namespace Library.RestApi.Controllers
         [ProducesResponseType(typeof(ErrorResource), 400)]
         public async Task<IActionResult> PutAsync(int id, [FromBody] SaveReaderResource resource)
         {
-            //if (!ModelState.IsValid)
-            //    return BadRequest(ModelState.GetErrorMessages());
-
             var reader = _mapper.Map<SaveReaderResource, Reader>(resource);
             var result = await _readerService.UpdateAsync(id, reader);
 

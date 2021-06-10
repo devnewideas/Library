@@ -12,17 +12,17 @@ namespace Library.Models
         /// <summary>
         /// This property will tell whether requests were completed successfully.
         /// </summary>
-        public bool Success { get; private set; }
+        public bool Success { get; set; }
 
         /// <summary>
         /// This property will have the error message if something fails.
         /// </summary>
-        public string Message { get; private set; }
+        public string Message { get; set; }
 
         /// <summary>
         /// pass the resource dynamically at runtime.
         /// </summary>
-        public T Resource { get; private set; }
+        public T Resource { get; set; }
 
         /// <summary>
         /// 

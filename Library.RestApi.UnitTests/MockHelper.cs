@@ -36,14 +36,44 @@ namespace Library.RestApi.UnitTests
                 });
             mockReaderService.Setup(X => X.SaveAsync(
                 It.IsAny<Reader>()
-                ));
+                )).ReturnsAsync(new ReaderResponse (It.IsAny<Reader>())
+                { 
+                    Success = true,
+                    Resource = new Reader
+                    {
+                        Id = 1,
+                        Name = "Stefan",
+                        DOB = new DateTime(1982, 10, 01)
+                    }
+                    
+                });
             mockReaderService.Setup(X => X.UpdateAsync(
                 It.IsAny<int>(),
                 It.IsAny<Reader>()
-                ));
+                )).ReturnsAsync(new ReaderResponse(It.IsAny<Reader>())
+                {
+                    Success = true,
+                    Resource = new Reader
+                    {
+                        Id = 1,
+                        Name = "Stefan",
+                        DOB = new DateTime(1982, 10, 01)
+                    }
+
+                });
             mockReaderService.Setup(X => X.DeleteAsync(
                 It.IsAny<int>()
-                ));
+                )).ReturnsAsync(new ReaderResponse(It.IsAny<Reader>())
+                {
+                    Success = true,
+                    Resource = new Reader
+                    {
+                        Id = 1,
+                        Name = "Stefan",
+                        DOB = new DateTime(1982, 10, 01)
+                    }
+
+                });
 
             return mockReaderService;
         }
@@ -74,6 +104,27 @@ namespace Library.RestApi.UnitTests
                           DOB = new DateTime(1984,10,01)
                         }
                     }
+                }
+                );
+
+            return mockMapper;
+        }
+
+        public static Mock<IMapper> PostMapperMock()
+        {
+            Mock<IMapper> mockMapper = new Mock<IMapper>();
+            mockMapper.Setup(x => x.Map<SaveReaderResource, Reader>(It.IsAny<SaveReaderResource>()))
+                .Returns(new Reader
+                {
+                    Name = "Stefan",
+                    DOB = new DateTime(1982, 10, 01),
+                });
+            mockMapper.Setup(x => x.Map<Reader, ReaderResource>(It.IsAny<Reader>()))
+                .Returns(new ReaderResource()
+                {
+                    Id = 1,
+                    Name = "Stefan",
+                    DOB = new DateTime(1982, 10, 01),
                 }
                 );
 
